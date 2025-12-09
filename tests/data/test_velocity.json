@@ -1,0 +1,104 @@
+[
+    {
+        "time_offset": 1.0,
+        "user": "u1",
+        "group": "g_velo",
+        "content": "Calm period..."
+    },
+    {
+        "time_offset": 2.0,
+        "user": "u2",
+        "group": "g_velo",
+        "content": "Nothing happening."
+    },
+    {
+        "time_offset": 60.0,
+        "user": "u1",
+        "group": "g_velo",
+        "content": "New window starts."
+    },
+    {
+        "time_offset": 61.0,
+        "user": "u1",
+        "group": "g_velo",
+        "content": "Just a few msgs."
+    },
+    {
+        "time_offset": 62.0,
+        "user": "u2",
+        "group": "g_velo",
+        "content": "Still calm."
+    },
+    {
+        "time_offset": 130.0,
+        "user": "u1",
+        "group": "g_velo",
+        "content": "Wait, did something happen?"
+    },
+    {
+        "time_offset": 131.0,
+        "user": "u1",
+        "group": "g_velo",
+        "content": "BURST START!"
+    },
+    {
+        "time_offset": 131.1,
+        "user": "u2",
+        "group": "g_velo",
+        "content": "OMG!"
+    },
+    {
+        "time_offset": 131.2,
+        "user": "u3",
+        "group": "g_velo",
+        "content": "What IS THIS?"
+    },
+    {
+        "time_offset": 131.3,
+        "user": "u4",
+        "group": "g_velo",
+        "content": "Fast messages!"
+    },
+    {
+        "time_offset": 131.4,
+        "user": "u5",
+        "group": "g_velo",
+        "content": "Speed!"
+    },
+    {
+        "time_offset": 131.5,
+        "user": "u1",
+        "group": "g_velo",
+        "content": "More speed!"
+    },
+    {
+        "time_offset": 131.6,
+        "user": "u2",
+        "group": "g_velo",
+        "content": "Go go go!"
+    },
+    {
+        "time_offset": 131.7,
+        "user": "u3",
+        "group": "g_velo",
+        "content": "Accelerating!"
+    },
+    {
+        "time_offset": 131.8,
+        "user": "u4",
+        "group": "g_velo",
+        "content": "Maximum Overdrive!"
+    },
+    {
+        "time_offset": 131.9,
+        "user": "u5",
+        "group": "g_velo",
+        "content": "Trigger please!"
+    },
+    {
+        "time_offset": 132.0,
+        "user": "u1",
+        "group": "g_velo",
+        "content": "Should trigger velocity warning now."
+    }
+]

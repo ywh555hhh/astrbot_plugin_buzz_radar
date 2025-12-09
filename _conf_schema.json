@@ -1,0 +1,134 @@
+{
+    "enable_plugin": {
+        "description": "✅ 启用喧嚣雷达 (BuzzRadar)",
+        "type": "bool",
+        "default": true,
+        "hint": "总开关。关闭后插件将停止所有工作。"
+    },
+    "trigger_settings": {
+        "description": "⚡ 触发灵敏度设置",
+        "type": "object",
+        "items": {
+            "trigger_threshold": {
+                "description": "🔥 热度触发阈值",
+                "type": "int",
+                "default": 80,
+                "hint": "当群内热度分达到此数值时，触发 AI 总结。建议值：50-100。"
+            },
+            "velocity_threshold": {
+                "description": "🚀 加速度阈值 (倍数)",
+                "type": "float",
+                "default": 2.0,
+                "hint": "若当前窗口热度是上一窗口的 N 倍，且分数超过最低要求，则视为突发热点。"
+            },
+            "min_velocity_score": {
+                "description": "📉 加速触发最低分",
+                "type": "int",
+                "default": 30,
+                "hint": "即使速度很快，总分也必须超过此值才触发加速预警。防止冷群突然说两句话就报警。"
+            },
+            "cooldown_minutes": {
+                "description": "❄️ 冷却时间 (分钟)",
+                "type": "int",
+                "default": 10,
+                "hint": "触发一次总结后，需要等待多少分钟才能再次触发。防止频繁刷屏。"
+            },
+            "max_score_cap": {
+                "description": "🛑 热度分上限 (封顶)",
+                "type": "int",
+                "default": 1000,
+                "hint": "防止热度分无限膨胀。即使群聊再火爆，分数也不会超过这个值。"
+            },
+            "decay_rate": {
+                "description": "📉 热度自然衰减 (分/分钟)",
+                "type": "int",
+                "default": 5,
+                "hint": "每分钟自动扣除的热度分。模拟话题随时间冷却。"
+            }
+        }
+    },
+    "cleaning_settings": {
+        "description": "🧹 信号提纯与过滤",
+        "type": "object",
+        "items": {
+            "min_text_length": {
+                "description": "📏 最小有效文本长度",
+                "type": "int",
+                "default": 2,
+                "hint": "短于此长度的内容（如“嗯”、“哦”）将被视为噪点，不计分。"
+            },
+            "ignore_regex": {
+                "description": "🚫 忽略内容的正则",
+                "type": "string",
+                "default": "^[#/!]",
+                "hint": "符合此正则的消息将被忽略。默认过滤掉以 # / ! 开头的指令消息。"
+            },
+            "deduplicate_threshold": {
+                "description": "👯‍♂️ 复读机过滤阈值",
+                "type": "int",
+                "default": 3,
+                "hint": "连续出现多少次相同内容后，后续的相同内容不再计分。"
+            }
+        }
+    },
+    "score_weights": {
+        "description": "⚖️ 计分权重配置",
+        "type": "object",
+        "items": {
+            "base_score": {
+                "description": "📝 基础文本分",
+                "type": "int",
+                "default": 1,
+                "hint": "一条普通文本消息的基础热度分。"
+            },
+            "image_score": {
+                "description": "🖼️ 图片/表情包分",
+                "type": "int",
+                "default": 2,
+                "hint": "一张图片或表情包代表的热度分。"
+            },
+            "long_text_bonus": {
+                "description": "📜 长文额外加分",
+                "type": "int",
+                "default": 1,
+                "hint": "如果文本较长（>15字），额外增加的分数。代表用户在认真输出。"
+            },
+            "reply_bonus": {
+                "description": "↩️ 回复/引用加分",
+                "type": "int",
+                "default": 2,
+                "hint": "如果消息是回复或引用他人的，额外增加的分数。代表交互性强。"
+            }
+        }
+    },
+    "persona_settings": {
+        "description": "🎭 提示词设置 (高级)",
+        "type": "object",
+        "items": {
+            "summary_prompt": {
+                "description": "📝 总结提示词",
+                "type": "text",
+                "default": "你是一个精准的群聊热点提取器。你的任务是从杂乱的聊天记录中，提取出一个最具吸引力的“热搜标题”。\n\n### 聊天记录：\n{{context}}\n\n### 提取规则：\n1. **核心目标**：提取“实体 + 事件”或“核心冲突点”。\n2. **风格要求**：像微博热搜或B站热门标签。具体、紧凑、有信息量。\n3. **字数限制**：严格控制在 10-20 个汉字之间。\n4. **格式禁忌**：\n   - ❌ 严禁使用任何标点符号。\n   - ❌ 严禁包含“大家”、“讨论”、“关于”、“正在”等无意义的废话。\n   - ❌ 严禁输出完整句子，只要短语。\n   - ❌ 严禁使用引号（\"\" 或 ‘’）。\n\n### 优质示例（Few-Shot）：\nInput: (一群人在聊饿了、想吃火锅、谁去订位、海底捞还要排队吗)\nOutput: 深夜海底捞组局计划\n\nInput: (詹姆斯今天太铁了、确实不如库里、数据刷子、历史地位不行)\nOutput: NBA詹库历史地位激辩\n\nInput: (报错了、Python环境不对、重装试试、版本不兼容)\nOutput: Bot启动环境报错排查\n\nInput: (无职转生这一集神了、鲁迪做得不对、作画太强了)\nOutput: 无职转生最新集剧情争议\n\n对话历史：\n{{context}}\n\nKeyword:",
+                "hint": "您可以在此直接修改 Prompt。保留 {{context}} 作为对话插入点。"
+            }
+        }
+    },
+    "display_settings": {
+        "description": "🖥️ 显示设置",
+        "type": "object",
+        "items": {
+            "summary_template": {
+                "description": "📝 总结消息模板",
+                "type": "string",
+                "default": "【{keyword}】 {active_count} 人正在热议 🔥",
+                "hint": "支持变量: {keyword}, {active_count}, {score}, {msg_count}。"
+            },
+            "max_keyword_length": {
+                "description": "📏 话题关键词最大长度",
+                "type": "int",
+                "default": 20,
+                "hint": "超出此长度将被截断。建议 15-20 字以展示更多信息量。"
+            }
+        }
+    }
+}

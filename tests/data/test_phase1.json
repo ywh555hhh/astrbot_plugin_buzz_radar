@@ -1,0 +1,122 @@
+[
+    {
+        "time_offset": 1.0,
+        "user": "u1",
+        "group": "g1",
+        "content": "Hello world"
+    },
+    {
+        "time_offset": 2.0,
+        "user": "u2",
+        "group": "g1",
+        "content": "Hi there"
+    },
+    {
+        "time_offset": 3.0,
+        "user": "u3",
+        "group": "g1",
+        "content": "Short"
+    },
+    {
+        "time_offset": 4.0,
+        "user": "u4",
+        "group": "g1",
+        "content": "Short"
+    },
+    {
+        "time_offset": 5.0,
+        "user": "u5",
+        "group": "g1",
+        "content": "Short"
+    },
+    {
+        "time_offset": 6.0,
+        "user": "u1",
+        "group": "g1",
+        "content": "This is a very long message that should get a bonus score because it shows effort."
+    },
+    {
+        "time_offset": 10.0,
+        "user": "u2",
+        "group": "g1",
+        "content": "Spam"
+    },
+    {
+        "time_offset": 10.1,
+        "user": "u2",
+        "group": "g1",
+        "content": "Spam"
+    },
+    {
+        "time_offset": 10.2,
+        "user": "u2",
+        "group": "g1",
+        "content": "Spam"
+    },
+    {
+        "time_offset": 10.3,
+        "user": "u2",
+        "group": "g1",
+        "content": "Spam"
+    },
+    {
+        "time_offset": 15.0,
+        "user": "u1",
+        "group": "g1",
+        "content": "Trigger attempt"
+    },
+    {
+        "time_offset": 15.1,
+        "user": "u2",
+        "group": "g1",
+        "content": "Trigger attempt"
+    },
+    {
+        "time_offset": 15.2,
+        "user": "u3",
+        "group": "g1",
+        "content": "Trigger attempt"
+    },
+    {
+        "time_offset": 15.3,
+        "user": "u4",
+        "group": "g1",
+        "content": "Trigger attempt"
+    },
+    {
+        "time_offset": 15.4,
+        "user": "u5",
+        "group": "g1",
+        "content": "Trigger attempt"
+    },
+    {
+        "time_offset": 15.5,
+        "user": "u6",
+        "group": "g1",
+        "content": "Trigger attempt"
+    },
+    {
+        "time_offset": 15.6,
+        "user": "u7",
+        "group": "g1",
+        "content": "Trigger attempt"
+    },
+    {
+        "time_offset": 15.7,
+        "user": "u8",
+        "group": "g1",
+        "content": "Trigger attempt"
+    },
+    {
+        "time_offset": 15.8,
+        "user": "u9",
+        "group": "g1",
+        "content": "Trigger attempt"
+    },
+    {
+        "time_offset": 15.9,
+        "user": "u10",
+        "group": "g1",
+        "content": "Trigger attempt"
+    }
+]

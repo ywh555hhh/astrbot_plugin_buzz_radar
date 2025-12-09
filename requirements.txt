@@ -1,0 +1,3 @@
+# AstrBot Plugin Dependencies
+# Currently this plugin relies on standard libraries and AstrBot core.
+# Use async libraries if network requests are added.

@@ -51,6 +51,14 @@ sys.modules['astrbot.api.star'] = mock_astrbot.api.star
 sys.modules['astrbot.core'] = mock_astrbot.core
 sys.modules['astrbot.core.config'] = mock_astrbot.core.config
 sys.modules['astrbot.core.config.astrbot_config'] = mock_astrbot.core.config.astrbot_config
+
+# Mock message components
+message_components = MagicMock()
+message_components.Plain = MagicMock()
+mock_astrbot.core.message = MagicMock()
+mock_astrbot.core.message.components = message_components
+sys.modules['astrbot.core.message'] = mock_astrbot.core.message
+sys.modules['astrbot.core.message.components'] = message_components
 # --- MOCK ASTRBOT END ---
 
 from tests.mock_event import MockEvent, MockContext

@@ -2,7 +2,7 @@ import unittest
 import sys
 import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-from src.persona import PersonaManager
+from persona import PersonaManager
 
 class TestPersonaManager(unittest.TestCase):
     def setUp(self):
